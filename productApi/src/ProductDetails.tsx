@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react'
+import {useState,useEffect} from 'react'
 import { fetchProduct } from './api'
 import { Products } from './types'
-import { useParams } from 'react-router-dom'
+import {  useParams } from 'react-router-dom'
 
 function ProductDetails() {
     const {id} = useParams<{id: string}>();
@@ -32,15 +32,23 @@ function ProductDetails() {
      if (!product) return <p>product not found</p>
 
   return (
+    <>
     <div>
-        <img className='max-h-36 ' 
-        src={product.image} alt={product.title} />
-        <h1 className='text-2xl'>{product.title}</h1>
-        <p className='text-blue-600'>{product.price}</p>
-        <p>{product.category}</p>
-        <p>{product.description}</p>
-      
+    <h1 className="text-3xl mb-2">Product Details</h1>
+  </div>
+    <div className='max-w-md mx-auto p-4 border rounded-md shadow-md bg-gray-400'>
+        <img className='max-h-36 max-w-20, mx-auto bg-white rounded-lg'  
+        src={product.images[0]} alt={product.title} />
+        <h1 className='text-2xl font-bold mt-4'>{product.title}</h1>
+        <p className='text-black'>Price: ${product.price}</p>
+        <p className='text-yellow-800'>Rating: {product.rating}</p>
+        <p className='text-black'>Category: {product.category}</p>
+        <p className='text-black mt-4 max-w-sm"'>Description<br/>{product.description}</p>
+        
+       
     </div>
+    
+    </>
   )
 }
 

@@ -1,22 +1,25 @@
 import { Products } from "./types";
 
-const API_URL = 'https://fakestoreapi.com/products'
+const API_URL = 'https://dummyjson.com/products';
 
-export const fetchProducts = async (): Promise <Products[]> => {
-    const response = await fetch(API_URL);
-    if(!response.ok)
-        throw new Error("Failed to fetch");
-    return response.json();
-}
+export const fetchProducts = async (): Promise<Products[]> => {
+  const response = await fetch(API_URL);
+  if (!response.ok) {
+    throw new Error("Failed to fetch products");
+  }
+  
+  const data = await response.json();
+
+  return data.products;
+};
 
 export const fetchProduct = async (id: number): Promise<Products> => {
-    const response = await fetch(`${API_URL}/${id}`);
-    if (!response.ok) throw new Error("Failed to fetch product");
-    const data = await response.json();
+  const response = await fetch(`${API_URL}/${id}`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch product");
+  }
   
-    // if (Array.isArray(data)) {
-    //   throw new Error("API returned an array instead of a single product");
-    // }
+  const data = await response.json();
   
-    return data;
-  };
+  return data;
+};
