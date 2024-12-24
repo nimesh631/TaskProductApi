@@ -9,9 +9,14 @@ export const fetchProducts = async (): Promise <Products[]> => {
     return response.json();
 }
 
-export const fetchProduct = async (id: number): Promise <Products[]> =>{
+export const fetchProduct = async (id: number): Promise<Products> => {
     const response = await fetch(`${API_URL}/${id}`);
-    if(!response.ok)
-        throw new Error("Failed to fetch product");
-    return response.json();
-}
+    if (!response.ok) throw new Error("Failed to fetch product");
+    const data = await response.json();
+  
+    // if (Array.isArray(data)) {
+    //   throw new Error("API returned an array instead of a single product");
+    // }
+  
+    return data;
+  };
