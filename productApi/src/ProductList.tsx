@@ -40,10 +40,10 @@ function ProductList() {
       <div>
         <h1 className="text-3xl mb-2">Product List</h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 bg-gray-400">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 bg-gray-400 p-5 rounded-lg">
         {currentProducts.map((product) => (
           <div key={product.id}>
-            <img className="max-h-36 mx-auto my-3" src={product.image} alt={product.title} />
+            <img className="max-h-36 mx-auto my-3 bg-white rounded-xl" src={product.images[0]} alt={product.title} />
             <h2 className="text-xl">{product.title}</h2>
             <p className="text-blue-800">${product.price}</p>
             <Link

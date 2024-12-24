@@ -4,10 +4,10 @@ export interface Products {
     price: number;
     category: string;
     description: string;
-    image: string;
-    // rating: number;
-    // image: string[];
-    // reviews: string[];
+    // image: string;
+    rating: number;
+    images: string[];
+    reviews: string[];
 
 
 }
