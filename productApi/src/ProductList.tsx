@@ -40,7 +40,7 @@ function ProductList() {
              alt={product.title} />
 
             <h2 className="text-xl  ">{product.title}</h2>
-            <p className="text-blue-800">{product.price}</p>
+            <p className="text-blue-800">${product.price}</p>
             <Link to={`/products/${product.id}`}
             className="hover:underline hover:text-lg hover:text-blue-700"
             >View Details</Link>
