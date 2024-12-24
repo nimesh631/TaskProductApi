@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import {useState,useEffect} from 'react'
 import { fetchProduct } from './api'
 import { Products } from './types'
 import {  useParams } from 'react-router-dom'
